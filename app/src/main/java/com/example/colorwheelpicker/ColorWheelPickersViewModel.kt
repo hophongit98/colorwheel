@@ -41,6 +41,7 @@ class ColorWheelPickersViewModel : ColorWheelPickersContract.ViewModel() {
 
         _pickedColor = _firstItemColor
         this.bitmap = bitmap
+        getPositionOfParticularColor(firstItemColor)
     }
 
     override fun onTintedCircleSelected(control: SelectedControl) {
