@@ -1,5 +1,7 @@
 package com.example.colorwheelpicker
 
+import android.graphics.Bitmap
+import androidx.lifecycle.LiveData
 import com.example.colorwheelpicker.base.BaseContract
 
 /**
@@ -7,5 +9,11 @@ import com.example.colorwheelpicker.base.BaseContract
  * date 07/05/2022.
  */
 interface ColorWheelPickersContract {
-    abstract class ViewModel : BaseContract.BaseViewModel() {}
+    abstract class ViewModel : BaseContract.BaseViewModel() {
+        abstract val firstItemColor: LiveData<Int>
+        abstract val secondItemColor: LiveData<Int>
+        abstract val thirdItemColor: LiveData<Int>
+
+        abstract fun initialize(firstItemColor: Int, secondItemColor: Int, thirdItemColor: Int , bitmap: Bitmap)
+    }
 }
