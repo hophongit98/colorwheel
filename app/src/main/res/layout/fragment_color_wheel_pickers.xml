@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_root_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/layout_three_way_selected_control"
+                layout="@layout/layout_three_way_segmented_control" />
+
+            <ImageView
+                android:id="@+id/iv_color_wheel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/element_background"
+                android:padding ="16dp"
+                android:layout_marginTop="24dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:src="@drawable/colorwheel" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
+
+
