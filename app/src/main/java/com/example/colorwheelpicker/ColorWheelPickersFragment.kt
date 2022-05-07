@@ -19,6 +19,7 @@ import com.example.colorwheelpicker.customview.ColorWheelSelector
 import com.example.colorwheelpicker.databinding.FragmentColorWheelPickersBinding
 import com.example.colorwheelpicker.util.absY
 import com.example.colorwheelpicker.util.getBitmapFromView
+import com.example.colorwheelpicker.ColorWheelPickersContract.SelectedControl
 
 /**
  * Created by Phillip Truong
@@ -88,9 +89,18 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
 
     override fun onClick(viewId: View?) {
         when (viewId?.id) {
-            R.id.scv_first_item -> { }
-            R.id.scv_second_item -> { }
-            R.id.scv_third_item -> { }
+            R.id.scv_first_item -> {
+                colorWheelPickersViewModel.onTintedCircleSelected(SelectedControl.FIRST)
+                updateBackgroundItemSelected(SelectedControl.FIRST)
+            }
+            R.id.scv_second_item -> {
+                colorWheelPickersViewModel.onTintedCircleSelected(SelectedControl.SECOND)
+                updateBackgroundItemSelected(SelectedControl.SECOND)
+            }
+            R.id.scv_third_item -> {
+                colorWheelPickersViewModel.onTintedCircleSelected(SelectedControl.THIRD)
+                updateBackgroundItemSelected(SelectedControl.THIRD)
+            }
         }
     }
 
@@ -129,6 +139,43 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun updateBackgroundItemSelected(selectedControl: SelectedControl) {
+        with(binding.layoutThreeWaySelectedControl) {
+            when (selectedControl) {
+                SelectedControl.FIRST -> {
+                    scvFirstItem.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.selected_element_background
+                        )
+                    )
+                    scvSecondItem.resetBackgroundColour()
+                    scvThirdItem.resetBackgroundColour()
+                }
+                SelectedControl.SECOND -> {
+                    scvSecondItem.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.selected_element_background
+                        )
+                    )
+                    scvFirstItem.resetBackgroundColour()
+                    scvThirdItem.resetBackgroundColour()
+                }
+                SelectedControl.THIRD -> {
+                    scvThirdItem.setBackgroundColor(
+                        ContextCompat.getColor(
+                            requireContext(),
+                            R.color.selected_element_background
+                        )
+                    )
+                    scvSecondItem.resetBackgroundColour()
+                    scvFirstItem.resetBackgroundColour()
+                }
+            }
+        }
     }
 
     companion object {
