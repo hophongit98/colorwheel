@@ -15,5 +15,13 @@ interface ColorWheelPickersContract {
         abstract val thirdItemColor: LiveData<Int>
 
         abstract fun initialize(firstItemColor: Int, secondItemColor: Int, thirdItemColor: Int , bitmap: Bitmap)
+        abstract fun onTintedCircleSelected(control: SelectedControl)
+        abstract fun onColorWheelPicked(color: Int)
+    }
+
+    enum class SelectedControl {
+        FIRST,
+        SECOND,
+        THIRD
     }
 }

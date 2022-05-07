@@ -5,6 +5,7 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.25092592592592594" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
+        <entry key="app/src/main/res/layout/fragment_color_wheel_pickers.xml" value="0.23802083333333332" />
         <entry key="app/src/main/res/layout/layout_three_way_segmented_control.xml" value="0.23802083333333332" />
       </map>
     </option>
