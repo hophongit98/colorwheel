@@ -1,6 +1,7 @@
 package com.example.colorwheelpicker
 
 import android.graphics.Bitmap
+import android.graphics.PointF
 import androidx.lifecycle.LiveData
 import com.example.colorwheelpicker.base.BaseContract
 
@@ -13,6 +14,7 @@ interface ColorWheelPickersContract {
         abstract val firstItemColor: LiveData<Int>
         abstract val secondItemColor: LiveData<Int>
         abstract val thirdItemColor: LiveData<Int>
+        abstract val tintedCirclePosition: LiveData<Pair<PointF, Int>>
 
         abstract fun initialize(firstItemColor: Int, secondItemColor: Int, thirdItemColor: Int , bitmap: Bitmap)
         abstract fun onTintedCircleSelected(control: SelectedControl)

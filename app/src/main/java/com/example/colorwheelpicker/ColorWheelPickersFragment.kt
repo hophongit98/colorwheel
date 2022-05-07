@@ -84,6 +84,12 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
             thirdItemColor.observe(viewLifecycleOwner) {
                 binding.layoutThreeWaySelectedControl.scvThirdItem.setCircleColor(it)
             }
+            tintedCirclePosition.observe(viewLifecycleOwner) { (pointF, color) ->
+                colorWheelSelector.updateSelector(
+                    PointF(pointF.x, pointF.y + binding.ivColorWheel.absY()),
+                    color
+                )
+            }
         }
     }
 
