@@ -9,6 +9,10 @@ import android.view.View
 import androidx.core.content.withStyledAttributes
 import com.example.colorwheelpicker.R
 
+/**
+ * Created by Phillip Truong
+ * date 07/05/2022.
+ */
 class SegmentedControlView(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     private val backgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }

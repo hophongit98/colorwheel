@@ -50,7 +50,7 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
                 scvThirdItem.setOnClickListener(this@ColorWheelPickersFragment)
             }
 
-            linearLayoutRootView.setOnTouchListener(this@ColorWheelPickersFragment)
+            ivColorWheel.setOnTouchListener(this@ColorWheelPickersFragment)
 
             colorWheelSelector = ColorWheelSelector(requireContext())
 
@@ -93,6 +93,11 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     override fun onClick(viewId: View?) {
         when (viewId?.id) {
             R.id.scv_first_item -> {
@@ -126,8 +131,11 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
                         val color = Color.rgb(red, green, blue)
 
                         colorWheelPickersViewModel.onColorWheelPicked(color)
+                        // padding 16
+                        val y = motionEvent.y + binding.ivColorWheel.absY() - 16 * resources.displayMetrics.density
+                        val x = motionEvent.x
                         colorWheelSelector.updateSelector(
-                            PointF(motionEvent.x, motionEvent.y),
+                            PointF(x, y),
                             color
                         )
                     } catch (e: Exception) {
@@ -140,11 +148,6 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
             }
         }
         return true
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun updateBackgroundItemSelected(selectedControl: SelectedControl) {

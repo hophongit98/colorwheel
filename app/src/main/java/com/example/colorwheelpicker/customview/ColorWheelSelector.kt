@@ -7,6 +7,10 @@ import android.graphics.Paint
 import android.graphics.PointF
 import android.view.View
 
+/**
+ * Created by Phillip Truong
+ * date 07/05/2022.
+ */
 class ColorWheelSelector(context: Context) : View(context) {
 
     private val selectorPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }

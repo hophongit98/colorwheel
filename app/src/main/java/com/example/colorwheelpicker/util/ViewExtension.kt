@@ -2,10 +2,12 @@ package com.example.colorwheelpicker.util
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 
+/**
+ * Created by Phillip Truong
+ * date 07/05/2022.
+ */
 fun View.getBitmapFromView(): Bitmap? {
     val bitmap = Bitmap.createBitmap(this.width, this.height, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
