@@ -67,9 +67,11 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
         val secondItemColor = ContextCompat.getColor(requireContext(), R.color.green)
         val thirdItemColor = ContextCompat.getColor(requireContext(), R.color.orange)
 
-        val bitmap = (binding.ivColorWheel.drawable as BitmapDrawable).bitmap
+        bitmap = (binding.ivColorWheel.drawable as BitmapDrawable).bitmap
         colorWheelPickersViewModel = createViewModel<ColorWheelPickersViewModel>().apply {
-            initialize(firstItemColor, secondItemColor, thirdItemColor, bitmap)
+            bitmap?.let {
+                initialize(firstItemColor, secondItemColor, thirdItemColor, it)
+            }
         }
     }
 
@@ -121,7 +123,6 @@ class ColorWheelPickersFragment private constructor() : BaseFragment(), View.OnC
         }
         when (motionEvent.action) {
             MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE -> {
-                bitmap = view.getBitmapFromView()
                 bitmap?.let {
                     try {
                         val pixels = it.getPixel(motionEvent.x.toInt(), motionEvent.y.toInt())
