@@ -53,6 +53,8 @@ class SegmentedControlView(context: Context, attrs: AttributeSet) : View(context
         invalidate()
     }
 
+    fun getCircleColor() = circleColour
+
     private fun drawBackground(canvas: Canvas) {
         backgroundPaint.color = backgroundColour
         canvas.drawPaint(backgroundPaint)
