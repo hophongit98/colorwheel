@@ -38,7 +38,6 @@ class ColorWheelPickersViewModel : ColorWheelPickersContract.ViewModel() {
             SelectedControl.SECOND -> _secondItemColor
             SelectedControl.THIRD -> _thirdItemColor
         }
-        Log.d("xxxx", "onTintedCircleSelected - color=${_itemColor.value}")
         _tintedCircleColor.value = _itemColor.value
     }
 
