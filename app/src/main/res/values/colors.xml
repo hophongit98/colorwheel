@@ -8,9 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="teal">#00ffdb</color>
-    <color name="green">#00ff00</color>
-    <color name="orange">#ff6c00</color>
+    <color name="teal">#00c2a3</color>
+    <color name="green">#4ba54f</color>
+    <color name="orange">#ff6100</color>
     <color name="background">#1a1a1a</color>
     <color name="element_background">#2c2c2c</color>
     <color name="selected_element_background">#3b3b3b</color>

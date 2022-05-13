@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,28 +13,63 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/linear_layout_root_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
 
-            <include
-                android:id="@+id/layout_three_way_selected_control"
-                layout="@layout/layout_three_way_segmented_control" />
+            <com.example.colorwheelpicker.customview.SegmentedControlView
+                android:id="@+id/scv_first_item"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                app:backgroundColour="@color/selected_element_background"
+                app:circleColour="@color/teal"
+                app:layout_constraintBottom_toTopOf="@+id/color_wheel_view"
+                app:layout_constraintEnd_toStartOf="@id/scv_second_item"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
 
-            <ImageView
-                android:id="@+id/iv_color_wheel"
+            <com.example.colorwheelpicker.customview.SegmentedControlView
+                android:id="@+id/scv_second_item"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:backgroundColour="@color/element_background"
+                app:circleColour="@color/green"
+                app:layout_constraintBottom_toBottomOf="@id/scv_first_item"
+                app:layout_constraintEnd_toStartOf="@id/scv_third_item"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/scv_first_item"
+                app:layout_constraintTop_toTopOf="@id/scv_first_item"
+                tools:ignore="ContentDescription" />
+
+            <com.example.colorwheelpicker.customview.SegmentedControlView
+                android:id="@+id/scv_third_item"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:backgroundColour="@color/element_background"
+                app:circleColour="@color/orange"
+                app:layout_constraintBottom_toBottomOf="@id/scv_first_item"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@id/scv_second_item"
+                app:layout_constraintTop_toTopOf="@id/scv_first_item"
+                tools:ignore="ContentDescription" />
+
+            <com.example.colorwheelpicker.customview.ColorWheelView
+                android:id="@+id/color_wheel_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/element_background"
-                android:padding ="16dp"
+                android:layout_height="600dp"
                 android:layout_marginTop="24dp"
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
-                android:src="@drawable/colorwheel" />
-        </LinearLayout>
+                android:background="@color/element_background"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/scv_first_item" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>
 

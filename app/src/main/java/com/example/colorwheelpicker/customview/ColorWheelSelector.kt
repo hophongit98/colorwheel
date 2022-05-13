@@ -50,6 +50,6 @@ class ColorWheelSelector(context: Context) : View(context) {
     }
 
     companion object {
-        private const val SELECTOR_RADIUS_DP = 18
+        const val SELECTOR_RADIUS_DP = 18
     }
 }
