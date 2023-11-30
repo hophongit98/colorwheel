@@ -1,2 +1,2 @@
 # colorwheel
-Project that practise with canvas
+Project that practises with canvas
